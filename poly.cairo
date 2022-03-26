@@ -1,19 +1,17 @@
 func main():
-   #Computes the polynomial x^3+23x^2+45x+67 for x, where fp is x 
-   [fp] = 1; ap++  #assign fp then assign x to f
-   let x = [fp]     
-
-   [ap] = x * x; ap++         #x^3
-   [ap] = [ap-1] * x; ap++ 
+   # Computes the polynomial x^3+23x^2+45x+67 for x
+   # https://www.cairo-lang.org/docs/how_cairo_works/cairo_intro.html 
    
-   [ap] = x * x; ap++         #23x^2
-   [ap] = [ap - 1] * 23; ap++
+   let x = 100 
 
-   [ap] = x * 45; ap++        #45x
+   [ap] = x * x * x; ap++         #x^3
+   
+   [ap] = x * x * 23; ap++         #23x^2
 
-   [ap] = [ap-1] + [ap - 2]; ap++ # adding the products 
-   [ap] = [ap-1] + [ap - 5]; ap++
+   [ap] = x * 45 + 67; ap++        #45x+67
 
-   [ap] = [ap-1] + 67; ap++   #adding 67 
+   [ap] = [ap-1] + [ap - 2]; ap++ # adding the products above 
+   [ap] = [ap-1] + [ap - 4]; ap++
+
    ret
 end
